@@ -115,15 +115,6 @@ app.get('/api/courses/:id',(req,res)=>{
 });
 
 
-
-
-
-
-
-
-
-
-
 app.get('/api/courses/:id',(req,res)=>{
     // res.send(req.params.id);
     
