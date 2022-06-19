@@ -10,7 +10,6 @@ const courses = [
 router.get("/", (req, res) => {
   res.send(courses);
 });
-
 router.post("/", (req, res) => {
   const { error } = validateCourse(req.body);
   if (error) {

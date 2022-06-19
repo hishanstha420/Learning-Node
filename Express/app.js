@@ -11,7 +11,6 @@ const app = express();
 const courses = require("./routes/courses");
 const home = require("./routes/home");
 app.use("/", home);
-
 app.set("view engine", "pug");
 app.set("views", "./views"); //default
 
