@@ -12,12 +12,11 @@ router.post("/", async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  let genre = new Genre({
+  const genre = new Genre({
     name: req.body.name,
-    movies: req.body.movies,
   });
 
-  genre = await genre.save();
+  await genre.save();
   res.send(genre);
 });
 
@@ -26,7 +25,7 @@ router.put("/:id", async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   const genre = await Genre.findByIdAndUpdate(req.params.id, {
-    $set: { name: req.body.name, movies: req.body.movies, new: true },
+    $set: { name: req.body.name, new: true },
   });
 
   if (!genre)
