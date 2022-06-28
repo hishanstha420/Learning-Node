@@ -1,3 +1,4 @@
+const jwt = require("jsonwebtoken");
 const config = require("config");
 const Joi = require("joi");
 Joi.objectId = require("Joi-objectid")(Joi);
