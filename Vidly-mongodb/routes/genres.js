@@ -4,9 +4,14 @@ const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-  const genre = await Genre.find().sort({ name: 1 });
-  res.send(genre);
+router.get("/", async (req, res, next) => {
+  res.send(await Genre.find().sort({ name: 1 }));
+  // try{
+  // res.send(await Genre.find());
+  // }
+  // catch(ex){
+  //   next(ex);
+  // }
 });
 
 router.post("/", auth, async (req, res) => {
